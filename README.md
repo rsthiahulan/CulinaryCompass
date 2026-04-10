@@ -1,8 +1,5 @@
-# CulinaryCompass
-subject to change
+
 # CulinaryCompass — Product Specification
-
-
 ## CORE FUNCTIONALITY
 
 ### 1.  Recipe Management
