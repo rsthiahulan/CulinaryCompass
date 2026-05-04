@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Base ───────────────────────────────────────── */
+  --color-background:         #0F1115;   /* warm cream — replaces cold #fafafa        */
+  --color-foreground:         #3D3A3A;   /* deepened plum-black — replaces cold #0f1014 */
+
+  /* ── Card / Surface ─────────────────────────────── */
+  --color-card:               #f7eee8;   /* slightly warmer card, pulls from cream    */
+  --color-surface:            #fdf8f4;   /* near-white with warm tint                 */
+
+  /* ── Primary (main interactive / brand) ─────────── */
+  --color-primary:            #EDEDED;   /* dark mauve — replaces cold navy           */
+  --color-primary-foreground: #fef5ef;   /* cream on dark mauve — high contrast       */
+
+  /* ── Secondary ──────────────────────────────────── */
+  --color-secondary:          #53B756;   /* warm sand-tinted secondary                */
+  --color-secondary-foreground: #584b53; /* dark mauve text on warm secondary         */
+
+  /* ── Muted ───────────────────────────────────────── */
+  --color-muted:              #f2e8e2;   /* muted warm surface                        */
+  --color-muted-foreground:   #7a6168;   /* mid-tone plum-grey                        */
+
+  /* ── Border ──────────────────────────────────────── */
+  --color-border:             #e0cec6;   /* warm rosy border, replaces cold grey      */
+
+  /* ── Highlight (accent / CTA) ────────────────────── */
+  --color-highlight:          #e4bb97;   /* warm sand/peach — from palette, replaces gold */
+  --color-prominent:          #680E4B;   /* vivid deep magenta            */
+  --color-prominent-muted:    #7a5068;
+  /* ── Radius ──────────────────────────────────────── */
+  --radius: 0.75rem;
+
+}
+
+@layer base{
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .font-serif {
+    font-family: 'Montserrat', serif;
+  }
+}
+
+@layer components {
+  .glass {
+    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+    backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  }
+
+  .glass-strong {
+    background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    backdrop-filter: blur(24px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 30px
+    color-mix(in srgb, var(--color-prominent) 100%, transparent);
+  }
+
+  .glow-border {
+
+  }
+}
+
+@layer utilities {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(10px)
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+      filter: blur(0px)
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out both;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-hover {
+    transition: all 0.3s ease-out;
+  }
+}
